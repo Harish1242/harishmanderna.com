@@ -11,7 +11,7 @@
       return '<a class="tile reveal' + (i === 1 ? ' tile-feat' : '') + '" href="' + b.url + '" target="_blank" rel="noopener">' +
         '<span class="tile-min">' + b.minutes + ' min video call</span><span class="tile-price">' + b.price + '</span>' +
         '<span class="tile-title">' + b.title + '</span><span class="tile-desc">' + b.desc + '</span>' +
-        '<span class="tile-cta">Book ' + b.minutes + ' minutes</span></a>';
+        '<span class="tile-cta">Pay &amp; book ' + b.minutes + ' minutes</span></a>';
     }).join("");
   }
 
