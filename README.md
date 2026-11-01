@@ -16,8 +16,8 @@ Edit `css/styles.css` and `js/*.js` in `site/` directly. Never edit generated `.
 
 ## Placeholders to swap (js/config.js)
 1. `booking[].url`: three Cal.com placeholder links (15/30/60 min). Replace with the real paid Cal.com event links.
-2. `FORM_ENDPOINT`: empty means the form opens a mailto to `FALLBACK_EMAIL` with `CC_EMAIL` in cc. The form service (Formspree or similar) must be set to deliver to BOTH addresses.
-3. `FALLBACK_EMAIL` (contact@harishmanderna.com, mailbox must exist first) and `CC_EMAIL` (manderna.1242@gmail.com).
+2. `FORM_ENDPOINT`: empty means the form opens a mailto to `FALLBACK_EMAIL`. The form service (Formspree or similar) must deliver to contact@harishmanderna.com.
+3. `FALLBACK_EMAIL` (contact@harishmanderna.com, mailbox must exist first).
 config.js is only loaded on book.html. Privacy and terms text in legal.html (via build.py) are placeholders.
 
 ## Video

@@ -110,8 +110,8 @@
     });
     var mailto = function (d) {
       var body = "Name: " + d.get("name") + "\nEmail: " + d.get("email") + "\nBased in: " + d.get("location") + "\nDeal size: " + d.get("size") + "\n\n" + d.get("message");
-      window.location.href = "mailto:" + C.FALLBACK_EMAIL + "?cc=" + encodeURIComponent(C.CC_EMAIL || "") + "&subject=" + encodeURIComponent("Enquiry from harishmanderna.com") + "&body=" + encodeURIComponent(body);
-      status.textContent = "Opening your email app, addressed to " + C.FALLBACK_EMAIL + " and " + C.CC_EMAIL + ".";
+      window.location.href = "mailto:" + C.FALLBACK_EMAIL + "?subject=" + encodeURIComponent("Enquiry from harishmanderna.com") + "&body=" + encodeURIComponent(body);
+      status.textContent = "Opening your email app, addressed to " + C.FALLBACK_EMAIL + ".";
     };
   }
   var yr = document.getElementById("yr"); if (yr) yr.textContent = new Date().getFullYear();

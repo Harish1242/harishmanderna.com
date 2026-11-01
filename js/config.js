@@ -8,7 +8,6 @@ window.SITE_CONFIG = {
   ],
   // PLACEHOLDER form endpoint (Formspree-style, e.g. https://formspree.io/f/xxxxxxx). Empty = mailto fallback.
   FORM_ENDPOINT: "",
-  // NOTE: configure the form service (Formspree or similar) to deliver every submission to BOTH addresses below.
-  FALLBACK_EMAIL: "contact@harishmanderna.com",
-  CC_EMAIL: "manderna.1242@gmail.com"
+  // NOTE: configure the form service (Formspree or similar) to deliver to contact@harishmanderna.com.
+  FALLBACK_EMAIL: "contact@harishmanderna.com"
 };
