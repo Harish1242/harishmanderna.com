@@ -60,14 +60,17 @@
       <li><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="1" cx="12" cy="12" r="10" /> <path pathLength="1" d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path pathLength="1" d="M2 12h20" /></svg><a href="https://www.linkedin.com/in/harishmanderna" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://x.com/harishmanderna" target="_blank" rel="noopener">X</a></li>
     </ul>
     <p class="muted">Your details are used only to reply to you. See <a href="/legal.html#privacy">Privacy</a>.</p></div>
-  <form class="form card reveal" id="enquiry-form" method="POST" novalidate>
-    <!-- PLACEHOLDER: form endpoint is set in js/config.js (FORM_ENDPOINT). Falls back to mailto (Gmail) until set. -->
+  <form class="form card reveal" id="enquiry-form" action="https://formsubmit.co/manderna.1242@gmail.com" method="POST">
+    <input type="hidden" name="_next" value="https://harishmanderna.com/book.html?enquiry=sent#enquiry">
+    <input type="hidden" name="_subject" value="Enquiry from harishmanderna.com">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
     <label>Name<input name="name" autocomplete="name" required></label>
     <label>Email<input name="email" type="email" autocomplete="email" required></label>
     <label>Where are you based?<input name="location" autocomplete="country-name"></label>
     <label>Deal or business size<select name="size"><option value="">Select</option><option>Under £1m</option><option>£1m to £2m</option><option>£2m to £5m</option><option>Over £5m</option><option>Not a deal (shipping or systems work)</option></select></label>
     <label class="full">What do you need?<textarea name="message" rows="5" required></textarea></label>
-    <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button class="btn" type="submit">Send enquiry</button>
     <p class="form-status" role="status" aria-live="polite"></p>
   </form>

@@ -92,21 +92,31 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  // Enquiry form (contact.html)
+  // Enquiry form: native POST to FormSubmit when FORM_ENDPOINT is set, so _next can redirect back to the site.
   var form = document.getElementById("enquiry-form");
   if (form) {
     var status = form.querySelector(".form-status");
+    var endpoint = C.FORM_ENDPOINT;
+    if (endpoint) form.setAttribute("action", endpoint);
+    if (/[?&]enquiry=sent(?:&|#|$)/.test(location.search) && status) {
+      status.textContent = "Thank you. I will reply within two working days.";
+    }
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) { status.textContent = "Please add your name, a valid email and a short message."; form.reportValidity(); return; }
-      if (form._gotcha.value) return;
-      var d = new FormData(form);
-      if (C.FORM_ENDPOINT) {
+      var honey = form.querySelector("[name='_honey']");
+      if (honey && honey.value) { e.preventDefault(); return; }
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        status.textContent = "Please add your name, a valid email and a short message.";
+        form.reportValidity();
+        return;
+      }
+      if (endpoint) {
         status.textContent = "Sending...";
-        fetch(C.FORM_ENDPOINT, { method: "POST", body: d, headers: { Accept: "application/json" } })
-          .then(function (r) { if (!r.ok) throw 0; status.textContent = "Thank you. I will reply within two working days."; form.reset(); })
-          .catch(function () { mailto(d); });
-      } else { mailto(d); }
+        return;
+      }
+      e.preventDefault();
+      var d = new FormData(form);
+      mailto(d);
     });
     var mailto = function (d) {
       var body = "Name: " + d.get("name") + "\nEmail: " + d.get("email") + "\nBased in: " + d.get("location") + "\nDeal size: " + d.get("size") + "\n\n" + d.get("message");
